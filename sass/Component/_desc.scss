@@ -22,15 +22,15 @@
     @include background( $white-1 , url(#{$path}/img/background__deep.webp) , no-repeat  , cover , center );
     position: fixed;
     top: 0;
-    left: calc(464px + 300px);
+    left: calc(464px + 196px );
     height: 100vh;
-    width: 877.5px;
+    width: 877px;
     z-index: -1;
 }
 
 @include respond(tablet){
     .background{
-        width: 751px;
+        width: 750px;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
@@ -40,6 +40,6 @@
 
 @include respond(mobile){
     .background{
-        width: 360px;
+        width: 358px;
     }
 }
