@@ -19,7 +19,7 @@
     // background-repeat: no-repeat;
     // background-size: cover;
     // background-position: center;
-    @include background( $white-1 , url(#{$path}/img/background__deep.webp) , no-repeat  , cover , center );
+    @include background( $white-1 , url(#{$path}/img/background.png) , no-repeat  , cover , center );
     position: fixed;
     top: 0;
     left: calc(464px + 196px );

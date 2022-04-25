@@ -34,13 +34,6 @@ const timelineHeight =
   $$(".timeline__data").length * ($$(".timeline__data")[0].offsetHeight + 10);
 const timeLineBarHeight = $(".timeline__wrapper");
 timeLineBarHeight.style = `height: ${timelineHeight}px;`;
-
-// Work data background
-const workBackgrounds = $$(".work__background");
-workBackgrounds.forEach((item, index) => {
-  item.style = `background-image: url(/assets/img/Desc/Work/${index + 1}.webp)`;
-});
-
 // Blog content
 const posts = $(".posts__wrapper");
 const blog = {
@@ -508,4 +501,105 @@ const tablet = {
   },
 };
 tablet.start();
-// Mobile UI Handler
+const work = {
+  data: [
+    {
+      id: 1,
+      title: "WORK 1",
+      subtitle: "Website",
+      contact: {
+        like: 100,
+        view: 100,
+      },
+      background: 1,
+    },
+    {
+      id: 2,
+      title: "WORK 1",
+      subtitle: "Website",
+      contact: {
+        like: 100,
+        view: 100,
+      },
+      background: 2,
+    },
+    {
+      id: 3,
+      title: "WORK 1",
+      subtitle: "Website",
+      contact: {
+        like: 100,
+        view: 100,
+      },
+      background: 3,
+    },
+    {
+      id: 4,
+      title: "WORK 1",
+      subtitle: "Website",
+      contact: {
+        like: 100,
+        view: 100,
+      },
+      background: 4,
+    },
+    {
+      id: 5,
+      title: "WORK 1",
+      subtitle: "Website",
+      contact: {
+        like: 100,
+        view: 100,
+      },
+      background: 5,
+    },
+    {
+      id: 6,
+      title: "WORK 1",
+      subtitle: "Website",
+      contact: {
+        like: 100,
+        view: 100,
+      },
+      background: 6,
+    },
+  ],
+
+  renderBG() {
+    const worskWrapper = $(".works");
+    let worksHtmls = this.data.map((work, index) => {
+      return `<div class="c-6 gutter m-c-12" key=${index} >
+                <div style="background-image: url(/assets/img/Desc/Work/${index+1}.webp)" class="work__background">
+                    <div class="work__data">
+                        <div class="work__data__desc">
+                            <h1 class="work__data__title">${work.title}</h1>
+                            <h2 class="work__data__subtitle">${work.subtitle}</h2>
+                        </div>
+                        <ul class="work__react">
+                            <li class="work__react__button share__button">
+                                <i
+                                    class="fas fa-share-alt work__react__button__icon share__button__icon"></i>
+                            </li>
+                            <li class="work__react__button view__button">
+                                <i class="fas fa-eye work__react__button__icon view__button__icon"></i>
+                                <p class="work__react__button__text view__button__text">${work.contact.view}</p>
+                            </li>
+                            <li class="work__react__button like__button">
+                                <i class="fas fa-heart work__react__button__icon like__button__icon"></i>
+                                <p class="work__react__button__text like__button__text">${work.contact.like}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>`;
+
+    });
+
+    worskWrapper.innerHTML = worksHtmls.join("");
+  },
+};
+
+// =============================== Main function ====================================
+const main = (() => {
+  work.renderBG();
+})();

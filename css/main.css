@@ -310,7 +310,7 @@ table {
   font-weight: 700;
 }
 
-.section-button, .work .work__button, .post__button, .form__group__wrapper .form__submit {
+.section-button, .work__wrapper .work__button, .post__button, .form__group__wrapper .form__submit {
   margin-bottom: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1393,7 +1393,7 @@ table {
   }
 }
 
-.work .work__menu {
+.work__wrapper .work__menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1405,7 +1405,7 @@ table {
   margin-bottom: 22.5px;
 }
 
-.work .work__menu .work__option {
+.work__wrapper .work__menu .work__option {
   font-size: 15px;
   font-weight: normal;
   line-height: 1.8;
@@ -1413,22 +1413,21 @@ table {
   text-align: left;
 }
 
-.work .work__menu .work__option.active {
+.work__wrapper .work__menu .work__option.active {
   color: #2C98F0;
 }
 
-.work .work__background {
-  background-color: #FFFFFF;
-  background-image: url(/assets/img/Desc/Work/1.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.work__wrapper .works .work__background {
   height: 300px;
   position: relative;
   margin-bottom: 30px;
+  background-color: #FFFFFF;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: cener;
 }
 
-.work .work__background .work__data {
+.work__wrapper .works .work__background .work__data {
   position: absolute;
   top: 0;
   left: 0;
@@ -1450,7 +1449,7 @@ table {
   transition: all ease .5s;
 }
 
-.work .work__background .work__data .work__data__desc .work__data__title {
+.work__wrapper .works .work__background .work__data .work__data__desc .work__data__title {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.1;
@@ -1465,7 +1464,7 @@ table {
   transition: all ease .25s;
 }
 
-.work .work__background .work__data .work__data__desc .work__data__subtitle {
+.work__wrapper .works .work__background .work__data .work__data__desc .work__data__subtitle {
   font-size: 14px;
   font-weight: normal;
   line-height: 1.8;
@@ -1478,7 +1477,7 @@ table {
   transition: all ease .25s;
 }
 
-.work .work__background .work__data .work__react {
+.work__wrapper .works .work__background .work__data .work__react {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1490,7 +1489,7 @@ table {
   opacity: 0;
 }
 
-.work .work__background .work__data .work__react .work__react__button {
+.work__wrapper .works .work__background .work__data .work__react .work__react__button {
   padding: 5px;
   border-radius: 4px;
   background-color: #FFFFFF80;
@@ -1503,12 +1502,12 @@ table {
   gap: 5px;
 }
 
-.work .work__background .work__data .work__react .work__react__button .work__react__button__icon {
+.work__wrapper .works .work__background .work__data .work__react .work__react__button .work__react__button__icon {
   font-size: 1rem;
   color: #000000B3;
 }
 
-.work .work__background .work__data .work__react .work__react__button .work__react__button__text {
+.work__wrapper .works .work__background .work__data .work__react .work__react__button .work__react__button__text {
   font-size: 12.75px;
   font-weight: normal;
   line-height: 1;
@@ -1516,18 +1515,22 @@ table {
   text-align: left;
 }
 
-.work .work__background:hover .work__data {
+.work__wrapper .works .work__background:hover {
+  cursor: pointer;
+}
+
+.work__wrapper .works .work__background:hover .work__data {
   background-color: #2C98F0;
 }
 
-.work .work__background:hover .work__data .work__data__desc .work__data__title,
-.work .work__background:hover .work__data .work__data__desc .work__data__subtitle {
+.work__wrapper .works .work__background:hover .work__data .work__data__desc .work__data__title,
+.work__wrapper .works .work__background:hover .work__data .work__data__desc .work__data__subtitle {
   -webkit-transform: translateY(0);
           transform: translateY(0);
   opacity: 1;
 }
 
-.work .work__background:hover .work__data .work__react {
+.work__wrapper .works .work__background:hover .work__data .work__react {
   opacity: 1;
 }
 
@@ -1837,7 +1840,7 @@ table {
 
 .background {
   background-color: #FFFFFF;
-  background-image: url(/assets/img/background__deep.webp);
+  background-image: url(/assets/img/background.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
