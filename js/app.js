@@ -1,8 +1,6 @@
 "use strict";
-
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-
 // Education List Handler
 let eventHanlder = () => {
   // Education
@@ -27,15 +25,13 @@ let eventHanlder = () => {
   // Call function here
   Education();
 };
-eventHanlder();
 
-// Experience timeline bar size
+// Set experience timeline bar size
 const timelineHeight =
   $$(".timeline__data").length * ($$(".timeline__data")[0].offsetHeight + 10);
 const timeLineBarHeight = $(".timeline__wrapper");
 timeLineBarHeight.style = `height: ${timelineHeight}px;`;
 // Blog content
-const posts = $(".posts__wrapper");
 const blog = {
   blogs: [
     {
@@ -58,6 +54,7 @@ const blog = {
     },
   ],
   render: function () {
+    const posts = $(".posts__wrapper");
     let data = this.blogs.map((blog, index) => {
       return `<!-- Post ${index + 1} -->
             <div class="c-4 gutter m-c-6 s-c-12">
@@ -88,31 +85,18 @@ const blog = {
     posts.innerHTML = data.join("");
   },
 };
-blog.render(); // Load data to blog post
-
 // Home element
-const menuItem = $$(".subnav");
-const homeDataWrapper = $(".home__data");
-const homeBackground = $(".home");
-const homeTitle = $(".home__title");
-const homeDesc = $(".home__desc");
-const homeBtnContent = $(".home__desc__button");
-// About element
-const aboutHeading = $(".about__heading");
-const aboutBody = $(".about__body");
-const aboutHireBanner = $(".hire__banner");
-// Main section offet Top
-const homePosY = $("#home").offsetTop;
-const aboutPosY = $("#about").offsetTop;
-const servicesPosY = $("#services").offsetTop;
-const skillPosY = $("#skill").offsetTop;
-const educationPosY = $("#education").offsetTop;
-const experiencePosY = $("#experience").offsetTop;
-const workPosY = $("#work").offsetTop;
-const blogPosY = $("#blog").offsetTop;
-const contactPosY = $("#contact").offsetTop;
-
 let scrollHandler = () => {
+  const menuItem = $$(".subnav");
+  const homeDataWrapper = $(".home__data");
+  const homeBackground = $(".home");
+  const homeTitle = $(".home__title");
+  const homeDesc = $(".home__desc");
+  const homeBtnContent = $(".home__desc__button");
+  // About element
+  const aboutHeading = $(".about__heading");
+  const aboutBody = $(".about__body");
+  const aboutHireBanner = $(".hire__banner");
   // Menu active when user scroll
   window.addEventListener("scroll", () => {
     let verticalPosition = Math.floor(window.scrollY);
@@ -167,8 +151,7 @@ let scrollHandler = () => {
   });
 };
 // 0 978 2000 3000 3900 4600 5800 7000 7800
-scrollHandler();
-let effect = {
+let homeEffect = {
   // Change Background and Data Home Section
   home: {
     ischange: false,
@@ -192,7 +175,7 @@ let effect = {
       },
     },
   },
-  homeEffectHandler: function () {
+  start: function () {
     setInterval(() => {
       $(".home__data").classList.toggle("isChange"); // Add/remove class to change data
     }, 3000);
@@ -247,9 +230,6 @@ let effect = {
     });
   },
 };
-setInterval(() => {
-  effect.homeEffectHandler();
-}, 4000);
 // Scroll Effect Handler
 const about = {
   selectors: [
@@ -569,11 +549,15 @@ const work = {
     const worskWrapper = $(".works");
     let worksHtmls = this.data.map((work, index) => {
       return `<div class="c-6 gutter m-c-12" key=${index} >
-                <div style="background-image: url(/assets/img/Desc/Work/${index+1}.webp)" class="work__background">
+                <div style="background-image: url(/assets/img/Desc/Work/${
+                  index + 1
+                }.webp)" class="work__background">
                     <div class="work__data">
                         <div class="work__data__desc">
                             <h1 class="work__data__title">${work.title}</h1>
-                            <h2 class="work__data__subtitle">${work.subtitle}</h2>
+                            <h2 class="work__data__subtitle">${
+                              work.subtitle
+                            }</h2>
                         </div>
                         <ul class="work__react">
                             <li class="work__react__button share__button">
@@ -582,17 +566,20 @@ const work = {
                             </li>
                             <li class="work__react__button view__button">
                                 <i class="fas fa-eye work__react__button__icon view__button__icon"></i>
-                                <p class="work__react__button__text view__button__text">${work.contact.view}</p>
+                                <p class="work__react__button__text view__button__text">${
+                                  work.contact.view
+                                }</p>
                             </li>
                             <li class="work__react__button like__button">
                                 <i class="fas fa-heart work__react__button__icon like__button__icon"></i>
-                                <p class="work__react__button__text like__button__text">${work.contact.like}</p>
+                                <p class="work__react__button__text like__button__text">${
+                                  work.contact.like
+                                }</p>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>`;
-
     });
 
     worskWrapper.innerHTML = worksHtmls.join("");
@@ -601,5 +588,15 @@ const work = {
 
 // =============================== Main function ====================================
 const main = (() => {
+  // Education
+  eventHanlder();
+  // Load data to blog post
+  blog.render();
+  // Section scroll effect
+  scrollHandler();
+  // Description background effect
+  setInterval(() => {
+    homeEffect.start();
+  }, 4000);
   work.renderBG();
 })();
