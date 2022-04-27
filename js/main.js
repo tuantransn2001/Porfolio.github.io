@@ -112,6 +112,7 @@ const homeEffect = {
       aboutMe: {
         title: "Hi! <br> I'm Tuấn",
         desc: '100% html5 bootstrap templates Made by <a href="#" class="home__desc__link">colorlib.com</a>',
+        // desc: 'I am Font-end Developer',
         button:
           'Download CV <i class="fas fa-cloud-download-alt home__desc__button__icon"></i>',
       },
